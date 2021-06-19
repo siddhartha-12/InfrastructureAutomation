@@ -1,0 +1,14 @@
+config t
+interface f0/0
+Ip ospf 1 area 0
+interface f1/0
+ip add 20.0.0.1 255.0.0.0
+no shut
+ip ospf 1 area 0
+interface f1/1
+ip add 30.0.0.1 255.0.0.0
+no shut
+ip ospf 1 area 1
+exit
+exit
+wr

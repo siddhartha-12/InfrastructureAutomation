@@ -1,0 +1,3 @@
+RTTavg - 1.0
+RTTmax - 4.0
+RTTmin - 1.0

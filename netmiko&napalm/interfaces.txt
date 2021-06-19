@@ -1,0 +1,57 @@
+-----Config of router with IP----- 192.168.229.11
+Interface - FastEthernet0/0 | Ip-Address - 192.168.229.11 | Status - up | Protocol - up
+Interface - FastEthernet1/0 | Ip-Address - 20.0.0.2 | Status - up | Protocol - up
+Interface - FastEthernet1/1 | Ip-Address - 40.0.0.1 | Status - up | Protocol - up
+Interface - FastEthernet2/1 | Ip-Address - 171.134.171.105 | Status - up | Protocol - up
+Interface - FastEthernet3/1 | Ip-Address - 205.125.222.236 | Status - up | Protocol - up
+Interface - FastEthernet4/0 | Ip-Address - unassigned | Status - up | Protocol - up
+Interface - FastEthernet4/1 | Ip-Address - 56.82.119.196 | Status - up | Protocol - up
+Interface - Loopback0 | Ip-Address - 192.168.230.12 | Status - up | Protocol - up
+-----Config of router with IP----- 192.168.229.10
+Interface - FastEthernet0/0 | Ip-Address - 192.168.229.10 | Status - up | Protocol - up
+Interface - FastEthernet1/0 | Ip-Address - 20.0.0.1 | Status - up | Protocol - up
+Interface - FastEthernet1/1 | Ip-Address - 30.0.0.1 | Status - up | Protocol - up
+Interface - FastEthernet2/0 | Ip-Address - 157.138.24.199 | Status - up | Protocol - up
+Interface - FastEthernet3/0 | Ip-Address - 149.63.123.4 | Status - up | Protocol - up
+Interface - FastEthernet3/1 | Ip-Address - 14.129.104.147 | Status - up | Protocol - up
+Interface - FastEthernet4/1 | Ip-Address - 6.38.228.147 | Status - up | Protocol - up
+Interface - Loopback0 | Ip-Address - 192.168.230.10 | Status - up | Protocol - up
+-----Config of router with IP----- 192.168.229.11
+Interface - FastEthernet0/0 | Ip-Address - 192.168.229.11 | Status - up | Protocol - up
+Interface - FastEthernet1/0 | Ip-Address - 20.0.0.2 | Status - up | Protocol - up
+Interface - FastEthernet1/1 | Ip-Address - 40.0.0.1 | Status - up | Protocol - up
+Interface - FastEthernet2/0 | Ip-Address - unassigned | Status - up | Protocol - up
+Interface - FastEthernet2/1 | Ip-Address - 171.134.171.105 | Status - up | Protocol - up
+Interface - FastEthernet3/0 | Ip-Address - 27.1.33.71 | Status - up | Protocol - up
+Interface - FastEthernet3/1 | Ip-Address - 205.125.222.236 | Status - up | Protocol - up
+Interface - FastEthernet4/0 | Ip-Address - unassigned | Status - up | Protocol - up
+Interface - FastEthernet4/1 | Ip-Address - 56.82.119.196 | Status - up | Protocol - up
+Interface - Loopback0 | Ip-Address - 192.168.230.12 | Status - up | Protocol - up
+-----Config of router with IP----- 192.168.229.10
+Interface - FastEthernet0/0 | Ip-Address - 192.168.229.10 | Status - up | Protocol - up
+Interface - FastEthernet1/0 | Ip-Address - 20.0.0.1 | Status - up | Protocol - up
+Interface - FastEthernet1/1 | Ip-Address - 30.0.0.1 | Status - up | Protocol - up
+Interface - FastEthernet2/0 | Ip-Address - 157.138.24.199 | Status - up | Protocol - up
+Interface - FastEthernet2/1 | Ip-Address - 210.195.184.94 | Status - up | Protocol - up
+Interface - FastEthernet3/0 | Ip-Address - 149.63.123.4 | Status - up | Protocol - up
+Interface - FastEthernet3/1 | Ip-Address - 14.129.104.147 | Status - up | Protocol - up
+Interface - FastEthernet4/0 | Ip-Address - 158.3.146.179 | Status - up | Protocol - up
+Interface - FastEthernet4/1 | Ip-Address - 6.38.228.147 | Status - up | Protocol - up
+Interface - Loopback0 | Ip-Address - 192.168.230.10 | Status - up | Protocol - up
+-----Config of router with IP----- 192.168.229.11
+Interface - FastEthernet0/0 | Ip-Address - 192.168.229.11 | Status - up | Protocol - up
+Interface - FastEthernet1/0 | Ip-Address - 20.0.0.2 | Status - up | Protocol - up
+Interface - FastEthernet1/1 | Ip-Address - 40.0.0.1 | Status - up | Protocol - up
+Interface - FastEthernet2/1 | Ip-Address - 171.134.171.105 | Status - up | Protocol - up
+Interface - FastEthernet3/1 | Ip-Address - 205.125.222.236 | Status - up | Protocol - up
+Interface - FastEthernet4/1 | Ip-Address - 176.144.62.53 | Status - up | Protocol - up
+Interface - Loopback0 | Ip-Address - 192.168.230.12 | Status - up | Protocol - up
+-----Config of router with IP----- 192.168.229.10
+Interface - FastEthernet0/0 | Ip-Address - 192.168.229.10 | Status - up | Protocol - up
+Interface - FastEthernet1/0 | Ip-Address - 20.0.0.1 | Status - up | Protocol - up
+Interface - FastEthernet1/1 | Ip-Address - 30.0.0.1 | Status - up | Protocol - up
+Interface - FastEthernet2/0 | Ip-Address - 157.138.24.199 | Status - up | Protocol - up
+Interface - FastEthernet3/0 | Ip-Address - 149.63.123.4 | Status - up | Protocol - up
+Interface - FastEthernet3/1 | Ip-Address - 33.76.140.177 | Status - up | Protocol - up
+Interface - FastEthernet4/0 | Ip-Address - 45.74.157.74 | Status - up | Protocol - up
+Interface - Loopback0 | Ip-Address - 192.168.230.10 | Status - up | Protocol - up
