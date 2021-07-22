@@ -1,0 +1,133 @@
+---
+### Install Apache2
+
+- name: Installing apache2
+  hosts: webserver
+  become: yes
+  tasks:
+    - name: install apache2
+      apt: name=apache2 update_cache=yes state=latest
+
+    - name: enabled mod_rewrite
+      apache2_module: name=rewrite state=present
+      notify:
+        - restart apache2
+
+  handlers:
+    - name: restart apache2
+      service: name=apache2 state=restarted
+
+#### Play to Copy file from webserver to webclient
+
+- name: Installing sshpass for running scp
+  hosts: assignment
+  become: yes
+  tasks:
+    - name: install sshpass
+      apt: name=sshpass update_cache=yes state=latest
+
+- name: Configure SSH configuration
+  hosts: webclient1
+  tasks:
+  - name: Creating a ssh config file with content to bypass ECDSA fingerprint
+    copy:
+      dest: "~/.ssh/config"
+      content: |
+        Host *
+        StrictHostKeyChecking no
+        UserKnownHostsFile=/dev/null
+
+- name: Copy file from webserver to webclient
+  hosts: webclient1
+  tasks:
+    - name: Copy file to another server
+      shell: "sshpass -p vagrant scp vagrant@192.168.50.4:/var/www/html/index.html /home/vagrant/ |cat"
+
+- name: Copy index.html from webclient1 to base machine
+  hosts: webclient1
+  gather_facts: no
+  tasks:
+  - name: ansible copy file from remote to local.
+    fetch:
+      src: /home/vagrant/index.html
+      dest: index.html
+      flat: yes
+
+###### Installing and setting up MySql
+- hosts: webserver
+  vars:
+    mysql_root_password: test
+  tasks:
+    - name: Install MySQL
+      apt: name={{ item }} update_cache=yes cache_valid_time=3600 state=present
+      become: yes
+      with_items:
+        - python-mysqldb
+        - mysql-server
+
+    - name: Start the MySQL service
+      become: yes
+      service:
+        name: mysql
+        state: started
+        enabled: true
+
+    - name: update mysql root password for all root accounts
+      become: yes
+      mysql_user:
+        name: root
+        host: "{{ item }}"
+        password: "{{ mysql_root_password }}"
+        login_user: root
+        login_password: "{{ mysql_root_password }}"
+        check_implicit_admin: yes
+        priv: "*.*:ALL,GRANT"
+      with_items:
+        - "{{ ansible_hostname }}"
+        - 127.0.0.1
+        - ::1
+        - localhost
+
+    - name: Create database user with name 'sid' and password '12345' with all database privileges
+      community.mysql.mysql_user:
+        login_user: root
+        login_password: "{{ mysql_root_password }}"
+        name: sid
+        password: 12345
+        priv: "*.*:ALL"
+        state: present
+
+    - name: Create a new database with name 'Assignment 4'
+      community.mysql.mysql_db:
+        login_user: root
+        login_password: "{{ mysql_root_password }}"
+        name: Assignment4
+        state: present
+
+    - name: create a table in mysql_databases
+      community.mysql.mysql_query:
+        login_user: root
+        login_password: "{{ mysql_root_password }}"
+        login_db: Assignment4
+        query: create table Automation (Name varchar(255), Address varchar(255))
+      
+    - name: Add entry to table
+      community.mysql.mysql_query:
+        login_user: root
+        login_password: "{{ mysql_root_password }}"
+        login_db: Assignment4
+        query: insert into Automation values("sid","Test Address")
+    
+    - name :  Register query output to a variable
+      community.mysql.mysql_query:
+        login_user: root
+        login_password: "{{ mysql_root_password }}"
+        login_db: Assignment4
+        query: select * from Automation
+      register: result
+      
+    - name: Export table query to file 
+      copy: 
+       content="{{ result.query_result }}" 
+       dest=database.txt
+      delegate_to: localhost

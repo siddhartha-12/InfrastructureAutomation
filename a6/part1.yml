@@ -1,0 +1,39 @@
+---
+- name : Create users in server
+  hosts: assignment
+  remote_user: ansible
+  become: yes
+  become_method: sudo
+  gather_facts: true
+  connection: ssh
+  tasks:
+     - name: Add group "Automation" to server
+       group :
+        name: Automation
+        state: present
+       register: grp1
+     - name: Add user "usr1" to server
+       user:
+        name: usr1
+        comment: "UnPrivileged User"
+        uid: 2001
+        group: Automation
+        shell: /bin/bash
+        generate_ssh_key: yes
+        ssh_key_bits: 2048 
+        ssh_key_file: .ssh/id_rsa
+       register: usr1 
+     - name: Add user "usr2" to server
+       user:
+        name: usr2
+        comment: "UnPrivileged User"
+        uid: 2002
+        group: Automation
+        shell: /bin/bash
+        generate_ssh_key: yes
+        ssh_key_bits: 2048 
+        ssh_key_file: .ssh/id_rsa
+       register: usr2
+     - name: output user variables
+       debug:
+        msg: "{{ ansible_hostname }} : Groupname*ID is {{ grp1.name }}*{{ grp1.gid }}.The user1 name*group is  {{ usr1.name }}*{{usr1.group}}. User2 name*group is {{usr2.name}}*{{usr2.group}}  "

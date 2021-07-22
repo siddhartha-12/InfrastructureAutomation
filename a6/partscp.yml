@@ -1,0 +1,10 @@
+---
+  - hosts: webclient1
+    gather_facts: no
+
+    tasks:
+    - name: ansible copy file from remote to local.
+      fetch:
+        src: /home/vagrant/index.html
+        dest: index.html
+        flat: yes

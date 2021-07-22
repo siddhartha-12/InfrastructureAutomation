@@ -1,0 +1,25 @@
+body common control
+{
+        bundlesequence => { "addpasswd" };
+        inputs => { "$(sys.libdir)/stdlib.cf" };
+
+}
+
+
+bundle agent addpasswd
+{
+  vars:
+      # want to set these values by the names of their array keys
+
+      "pwd[testuser]" string => "testuser:x:60001:10:Test User:/home/testuser:/usr/sbin/nologin";
+
+      "users" slist => getindices("pwd");
+
+  files:
+      "/etc/passwd"
+      create => "true",
+      edit_line => append_users_starting("addpasswd.pwd");
+
+      "/etc/group"
+      edit_line => append_user_field("users","4","@(addpasswd.users)");
+}
