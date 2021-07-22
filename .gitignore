@@ -6,6 +6,10 @@ __pycache__/
 # C extensions
 *.so
 
+#Vagrant files
+.vagrant
+
+
 # Distribution / packaging
 .Python
 build/
