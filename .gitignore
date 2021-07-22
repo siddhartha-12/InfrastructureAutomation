@@ -9,6 +9,8 @@ __pycache__/
 #Vagrant files
 .vagrant
 
+# .dsStore
+.DS_Store
 
 # Distribution / packaging
 .Python
